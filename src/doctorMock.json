@@ -1,0 +1,64 @@
+{
+  "npi": "1467791798",
+  "_input_file_date": "2024-04-07",
+  "entity_type_code": "1",
+  "provider_last_name_legal_name": "RAWOF",
+  "provider_first_name": "SALMA",
+  "provider_credential_text": "MD",
+  "provider_first_line_business_practice_location_address": "1600 SW ARCHER RD",
+  "provider_business_practice_location_address_city_name": "GAINESVILLE",
+  "provider_business_practice_location_address_state_name": "FL",
+  "provider_business_practice_location_address_postal_code": "326103003",
+  "provider_business_practice_location_address_country_code_if_outside_us": "US",
+  "provider_business_practice_location_address_telephone_number": "3522657999",
+  "provider_enumeration_date": "2013-02-06",
+  "provider_gender_code": "F",
+  "name_search": "SALMA RAWOF",
+  "address_search": "1600 SW ARCHER RD, GAINESVILLE, FL",
+  "reval_specialty": "Family Practice",
+  "groups": [
+    {
+      "name": "Vmd Primary Providers Central Florida Pllc",
+      "href": "/npi/1134738974",
+      "npi": "1134738974"
+    },
+    {
+      "name": "Muqeet Siddiqui, Md, Llc",
+      "href": "/npi/1558616482",
+      "npi": "1558616482"
+    }
+  ],
+  "pac_id": "7113172792",
+  "taxonomies": [
+    {
+      "timeRange": "2018-01-07 ~ Present",
+      "leftCensored": true,
+      "isPrimary": "Primary",
+      "description": "Family Medicine Physician",
+      "code": "207Q00000X"
+    }
+  ],
+  "licenses": [
+    {
+      "timeRange": "2018-01-07 ~ Present",
+      "leftCensored": true,
+      "license": "ME114712",
+      "issuingState": "FL"
+    }
+  ],
+  "otherids": [
+    {
+      "timeRange": "2018-01-07 ~ Present",
+      "id": "008213400",
+      "issuingState": "FL",
+      "type": "MEDICAID"
+    }
+  ],
+  "med_sch": "OTHER",
+  "grd_yr": 2008,
+  "telephone_number": "3469802725",
+  "street_address": "1600 SW ARCHER RD",
+  "txt": "../txt/1467791798",
+  "pdf": "../pdf/1467791798",
+  "json": "../api/1467791798"
+}
