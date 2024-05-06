@@ -6,8 +6,9 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://npi-explorer.mimilabs.org",
+        target: "https://npi-explorer.mimilabs.org/api/",
         changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },

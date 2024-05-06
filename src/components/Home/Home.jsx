@@ -6,11 +6,12 @@ export default function Home() {
   const [doctorNpi, setDoctorNpi] = useState("");
   const [providerData, setProviderData] = useState({});
   // const mockNPI = "1467791798";
-  const MIMILABS_URL = `api/${doctorNpi}`;
+
+  const MIMI_API = `https://npi-explorer.mimilabs.org/api/${doctorNpi}`;
 
   const handleDoctorInfoFetch = async () => {
     try {
-      const response = await fetch(MIMILABS_URL);
+      const response = await fetch(MIMI_API);
       const providerInfo = await response.json();
       setProviderData(providerInfo);
       setDoctorNpi(null);
