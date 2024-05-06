@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { ProviderBoxStyles } from "./styles";
 import ProviderCredentials from "./ProviderCredentials";
 import ProviderInformation from "./ProviderInformation";
+import { StyledBoxContainer } from "./styles";
 
 const ProviderBox = ({ providerData }) => {
   const {
@@ -36,19 +37,10 @@ const ProviderBox = ({ providerData }) => {
       <div
         style={{
           display: "flex",
-          minHeight: "100%",
-          // border: "1px solid red",
           gap: 20,
+          padding: 8,
         }}>
-        <div
-          style={{
-            display: "flex",
-            gap: 10,
-            justifyContent: "space-between",
-            minHeight: "100%",
-            width: "100%",
-            // border: "1px solid olive",
-          }}>
+        <StyledBoxContainer>
           <ProviderInformation
             provider_last_name_legal_name={provider_last_name_legal_name}
             provider_first_name={provider_first_name}
@@ -69,7 +61,7 @@ const ProviderBox = ({ providerData }) => {
             taxonomies={taxonomies}
             groups={groups}
           />
-        </div>
+        </StyledBoxContainer>
       </div>
     </Box>
   );

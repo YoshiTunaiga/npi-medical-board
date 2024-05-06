@@ -1,3 +1,11 @@
+# NPI - MEDICAL
+
+A single-page vite+react app using mimilabs NPI explorer API.
+
+Note: Provider's image not available.
+
+<img src="src/assets/portal-screen.png" />
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

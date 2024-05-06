@@ -2,14 +2,14 @@ import { Avatar } from "@mui/material";
 import PropTypes from "prop-types";
 
 const ProviderInformation = ({
-  provider_last_name_legal_name,
-  provider_first_name,
-  provider_credential_text,
-  reval_specialty,
-  grd_yr,
-  provider_business_practice_location_address_telephone_number,
-  providerRecentLocation,
-  provider_gender_code,
+  provider_last_name_legal_name = "",
+  provider_first_name = "",
+  provider_credential_text = "",
+  reval_specialty = "",
+  grd_yr = "",
+  provider_business_practice_location_address_telephone_number = "",
+  providerRecentLocation = {},
+  provider_gender_code = "",
 }) => {
   return (
     <div
@@ -18,10 +18,8 @@ const ProviderInformation = ({
         flexDirection: "column",
         gap: 2,
         width: "50%",
-        marginLeft: 10,
-        // border: "1px solid blue",
       }}>
-      <Avatar sx={{ width: 200, height: 200 }} />
+      <Avatar sx={{ marginLeft: 8, width: 150, height: 150 }} />
       <h1 style={{ marginBottom: 0, padding: 0 }}>{`${
         provider_first_name || "First Name"
       } ${provider_last_name_legal_name || "Last Name"}, ${

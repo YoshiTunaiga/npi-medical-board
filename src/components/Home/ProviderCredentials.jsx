@@ -15,9 +15,10 @@ const ProviderCredentials = ({
         display: "flex",
         flexDirection: "column",
         width: "50%",
-        // border: "1px solid orange",
-        paddingTop: 10,
+        paddingTop: 0,
+        paddingRight: 50,
       }}>
+      {/* ====== LICENSES SECTION ====== */}
       <h2>{`NPI: ${npi || "123456789"}`}</h2>
       <h3 style={{ margin: 0, padding: 0 }}>Licenses:</h3>
       <List>
@@ -34,6 +35,7 @@ const ProviderCredentials = ({
             ))}
       </List>
       <Divider />
+      {/* ====== OTHER IDs SECTION ====== */}
       <h3 style={{ marginBottom: 0, padding: 0 }}>Other IDs:</h3>
       <List>
         {otherids.map((otherid) => (
@@ -50,6 +52,7 @@ const ProviderCredentials = ({
         </ListItem>
       </List>
       <Divider />
+      {/* ====== TAXONOMIES SECTION ====== */}
       <h3 style={{ marginBottom: 0, padding: 0 }}>Taxonomies:</h3>
       <List>
         {taxonomies.length === 0
@@ -65,7 +68,7 @@ const ProviderCredentials = ({
             ))}
       </List>
       <Divider />
-
+      {/* ====== GROUPS SECTION ====== */}
       <h3 style={{ marginBottom: 0, padding: 0 }}>Groups:</h3>
       <List>
         {groups.length === 0
