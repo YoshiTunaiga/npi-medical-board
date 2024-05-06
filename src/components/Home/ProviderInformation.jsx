@@ -6,7 +6,7 @@ const ProviderInformation = ({
   provider_first_name = "",
   provider_credential_text = "",
   reval_specialty = "",
-  grd_yr = "",
+  grd_yr = 0,
   provider_business_practice_location_address_telephone_number = "",
   providerRecentLocation = {},
   provider_gender_code = "",
@@ -73,7 +73,7 @@ ProviderInformation.propTypes = {
   provider_first_name: PropTypes.string,
   provider_credential_text: PropTypes.string,
   reval_specialty: PropTypes.string,
-  grd_yr: PropTypes.string,
+  grd_yr: PropTypes.number,
   provider_gender_code: PropTypes.string,
   provider_business_practice_location_address_telephone_number:
     PropTypes.string,

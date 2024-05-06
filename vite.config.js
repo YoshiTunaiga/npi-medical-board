@@ -5,7 +5,10 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   server: {
     proxy: {
-      "/api": "https://npi-explorer.mimilabs.org",
+      "/api": {
+        target: "https://npi-explorer.mimilabs.org",
+        changeOrigin: true,
+      },
     },
   },
   plugins: [react()],
