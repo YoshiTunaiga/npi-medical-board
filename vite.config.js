@@ -9,7 +9,6 @@ export default defineConfig({
       "/api": {
         target: "https://npi-explorer.mimilabs.org",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
