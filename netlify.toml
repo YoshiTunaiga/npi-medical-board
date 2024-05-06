@@ -7,4 +7,4 @@
   force = true
   from = '/api/*'
   status = 200
-  to = 'https://npi-explorer.mimilabs.org/api/'
+  to = 'https://npi-explorer.mimilabs.org/api/:doctorNpi'
