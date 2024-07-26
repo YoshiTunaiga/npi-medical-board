@@ -10,8 +10,18 @@ export default function Home() {
 
   const handleDoctorInfoFetch = async () => {
     try {
+      const myHeaders = new Headers();
+      myHeaders.append(
+        "Access-Control-Allow-Origin",
+        "*",
+        "Access-Control-Allow-Methods",
+        "GET, POST, OPTION",
+        "Content-Type",
+        "application/json"
+      );
       const response = await fetch(
-        import.meta.env.PROD ? `https://npi-db.org${MIMI_API}` : MIMI_API
+        import.meta.env.PROD ? `https://npi-db.org${MIMI_API}` : MIMI_API,
+        { headers: myHeaders }
       );
       const providerInfo = await response.json();
       setProviderData(providerInfo);
