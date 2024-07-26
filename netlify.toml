@@ -12,6 +12,13 @@
   to = "/index.html"
   status = 200
 
+[[redirects]]
+  from = "/*"
+  to = "https://npi-db.org/api/:id"
+  status = 200
+  force = true
+  headers = {Access-Control-Allow-Origin: “*”}
+
 [[headers]]
   for = "/*"
   [headers.values]
