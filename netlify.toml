@@ -8,11 +8,6 @@
   targetPort = 5173
 
 [[redirects]]
-  from = "https://npi-db.org/api/:id"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
