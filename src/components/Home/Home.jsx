@@ -6,7 +6,7 @@ export default function Home() {
   const [doctorNpi, setDoctorNpi] = useState("");
   const [providerData, setProviderData] = useState({});
 
-  const MIMI_API = `/api/${doctorNpi}`;
+  const MIMI_API = `https://npi-db.org/api/${doctorNpi}`;
 
   const handleDoctorInfoFetch = async () => {
     try {
