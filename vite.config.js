@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://npi-explorer.mimilabs.org",
+        target: "https://npi-db.org",
         changeOrigin: true,
       },
     },
