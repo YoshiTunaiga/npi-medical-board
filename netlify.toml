@@ -14,7 +14,7 @@
 
 [[redirects]]
   from = "/*"
-  to = "https://npi-db.org/api/:id"
+  to = "/api"
   status = 200
   force = true
 
