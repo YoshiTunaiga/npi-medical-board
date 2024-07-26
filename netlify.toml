@@ -7,12 +7,17 @@
   port = 3000
   targetPort = 5173
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
+[[redirects]]
+  from = "https://npi-db.org/api/:id"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
