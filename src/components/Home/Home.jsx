@@ -5,7 +5,6 @@ import ProviderBox from "./ProviderBox";
 export default function Home() {
   const [doctorNpi, setDoctorNpi] = useState("");
   const [providerData, setProviderData] = useState({});
-  // const mockNPI = "1467791798";
 
   const MIMI_API = `/api/${doctorNpi}`;
 
