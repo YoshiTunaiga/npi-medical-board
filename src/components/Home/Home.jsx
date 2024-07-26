@@ -11,11 +11,11 @@ export default function Home() {
   const handleDoctorInfoFetch = async () => {
     try {
       const response = await fetch(
-        import.meta.env.DEV ? MIMI_API : `https://npi-db.org${MIMI_API}`
+        import.meta.env.PROD ? `https://npi-db.org${MIMI_API}` : MIMI_API
       );
       const providerInfo = await response.json();
       setProviderData(providerInfo);
-      setDoctorNpi(null);
+      setDoctorNpi("");
     } catch (error) {
       console.error(error);
     }
