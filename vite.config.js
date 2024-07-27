@@ -9,6 +9,7 @@ export default defineConfig({
       "/api": {
         target: "https://npi-db.org",
         changeOrigin: true,
+        secure: false,
       },
     },
   },
