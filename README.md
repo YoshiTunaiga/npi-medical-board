@@ -1,4 +1,4 @@
-# NPI - MEDICAL
+# npimedical.github.io
 
 A single-page vite+react app using mimilabs NPI explorer API.
 
