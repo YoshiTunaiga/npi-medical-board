@@ -1,19 +1,15 @@
 import { useState } from "react";
 import { Button, Stack, TextField, Typography } from "@mui/material";
 import ProviderBox from "./ProviderBox";
+import fetchDoctorInfo from "../../api/api";
 
 export default function Home() {
   const [doctorNpi, setDoctorNpi] = useState("");
   const [providerData, setProviderData] = useState({});
 
-  const MIMI_API = `/api/${doctorNpi}`;
-
   const handleDoctorInfoFetch = async () => {
     try {
-      const response = await fetch(
-        import.meta.env.PROD ? `https://npi-db.org${MIMI_API}` : MIMI_API
-      );
-      const providerInfo = await response.json();
+      const providerInfo = await fetchDoctorInfo(doctorNpi);
       setProviderData(providerInfo);
       setDoctorNpi("");
     } catch (error) {
