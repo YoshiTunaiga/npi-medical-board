@@ -10,7 +10,7 @@ export default async function fetchDoctorInfo(npId) {
         "Cache-Control": "no-cache",
         "Content-Type": "application/json",
         // Accept: "application/json, text/plain, */*",
-        // "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "*",
       },
     };
     const response = await instance.get(`/api/${npId}`, config);
