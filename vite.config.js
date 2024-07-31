@@ -5,9 +5,7 @@ export default defineConfig({
   base: "/npi-medical-board",
   plugins: [react()],
   build: {
-    rollupOptions: {
-      input: `./src/main.js`,
-    },
+    minify: false,
   },
   server: {
     allowedHosts: [`https://yoshitunaiga.github.io/npi-medical-board/`],
