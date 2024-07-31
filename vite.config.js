@@ -4,7 +4,13 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/npi-medical-board",
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      input: `./src/main.js`,
+    },
+  },
   server: {
+    allowedHosts: [`https://yoshitunaiga.github.io/npi-medical-board/`],
     proxy: {
       "/api": {
         target: "https://npi-db.org",
@@ -12,5 +18,6 @@ export default defineConfig({
         secure: false,
       },
     },
+    origin: "http://localhost:5173/npi-medical-board",
   },
 });
