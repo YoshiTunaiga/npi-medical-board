@@ -4,16 +4,15 @@ import axios from "axios";
 
 export default async function fetchDoctorInfo(npId) {
   try {
-    const instance = axios.create();
     const config = {
+      method: "get",
+      url: `/api/${npId}`,
       headers: {
         "Cache-Control": "no-cache",
         "Content-Type": "application/json",
-        // Accept: "application/json, text/plain, */*",
-        // "Access-Control-Allow-Origin": "*",
       },
     };
-    const response = await instance.get(`/api/${npId}`, config);
+    const response = await axios(config);
     return response.data;
   } catch (error) {
     console.error("Error fetching doctor info:", error);
