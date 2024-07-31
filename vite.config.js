@@ -5,10 +5,6 @@ export default defineConfig({
   base: "/npi-medical-board",
   plugins: [react()],
   build: {
-    minify: false,
-  },
-  server: {
-    allowedHosts: [`https://yoshitunaiga.github.io/npi-medical-board/`],
     proxy: {
       "/api": {
         target: "https://npi-db.org",
@@ -16,6 +12,18 @@ export default defineConfig({
         secure: false,
       },
     },
-    origin: "http://localhost:5173/npi-medical-board",
+  },
+  server: {
+    allowedHosts: [
+      "http://localhost:5173/npi-medical-board",
+      `https://yoshitunaiga.github.io/npi-medical-board/`,
+    ],
+    proxy: {
+      "/api": {
+        target: "https://npi-db.org",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
 });
