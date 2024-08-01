@@ -4,7 +4,7 @@ import NPPage from "./pages/NPPage";
 
 function App() {
   const routes = useRoutes([
-    { path: "/npi-medical-board", element: <Home /> },
+    { path: "/", element: <Home /> },
     { path: "/api/:id", element: <NPPage /> },
   ]);
 
