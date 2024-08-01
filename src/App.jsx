@@ -1,11 +1,14 @@
-import Home from "./components/Home/Home";
+import { useRoutes } from "react-router-dom";
+import Home from "./pages/Home";
+import NPPage from "./pages/NPPage";
 
 function App() {
-  return (
-    <div>
-      <Home />
-    </div>
-  );
+  const routes = useRoutes([
+    { path: "/npi-medical-board", element: <Home /> },
+    { path: "/api/:id", element: <NPPage /> },
+  ]);
+
+  return routes;
 }
 
 export default App;

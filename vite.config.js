@@ -4,15 +4,15 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/npi-medical-board",
   plugins: [react()],
-  build: {
-    proxy: {
-      "/api": {
-        target: "https://npi-db.org",
-        changeOrigin: true,
-        secure: false,
-      },
-    },
-  },
+  // build: {
+  //   proxy: {
+  //     "/api": {
+  //       target: "https://npi-db.org",
+  //       changeOrigin: true,
+  //       secure: false,
+  //     },
+  //   },
+  // },
   server: {
     allowedHosts: [
       "http://localhost:5173/npi-medical-board",
