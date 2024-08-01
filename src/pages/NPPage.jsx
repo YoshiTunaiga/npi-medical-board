@@ -1,21 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button, Stack, TextField, Typography } from "@mui/material";
-import ProviderBox from "./ProviderBox";
-import fetchDoctorInfo from "../../api/api";
+import ProviderBox from "../components/ProviderBox";
+import fetchDoctorInfo from "../api/api";
 
-export default function Home() {
-  const [doctorNpi, setDoctorNpi] = useState("");
+export default function NPPage() {
   const [providerData, setProviderData] = useState({});
+  const [doctorNpi, setDoctorNpi] = useState("");
+  const { id } = useParams();
 
-  const handleDoctorInfoFetch = async () => {
-    try {
-      const providerInfo = await fetchDoctorInfo(doctorNpi);
-      setProviderData(providerInfo);
-      setDoctorNpi("");
-    } catch (error) {
-      console.error(error);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // define fetch function
+    const handleDoctorInfoFetch = async () => {
+      try {
+        const providerInfo = await fetchDoctorInfo(id);
+        setProviderData(providerInfo);
+        setDoctorNpi("");
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+
+    // if there is an npId, call the fetch function
+    if (id) {
+      handleDoctorInfoFetch();
     }
-  };
+
+    return () => {
+      setProviderData({});
+    };
+  }, [id]);
+
+  const handleSearchProvider = () => navigate(`/api/${doctorNpi}`);
 
   return (
     <div
@@ -98,7 +117,8 @@ export default function Home() {
             <Button
               variant="contained"
               color="primary"
-              onClick={handleDoctorInfoFetch}>
+              disabled={!doctorNpi}
+              onClick={handleSearchProvider}>
               Search now
             </Button>
           </Stack>
