@@ -9,8 +9,6 @@ export default async function fetchDoctorInfo(npId) {
     baseURL: import.meta.env.PROD ? `${API_BASE_URL}` : `${API_BASE_URL}`,
   });
 
-  console.log(import.meta.env.PROD);
-
   const config = {
     method: "get",
     url: `/api/${npId}`,

@@ -17,6 +17,7 @@ export default defineConfig({
         target: "https://npi-db.org",
         changeOrigin: true,
         secure: false,
+        rewrite: (path) => path.replace(/^\/api/, "/api"),
       },
     },
   },
