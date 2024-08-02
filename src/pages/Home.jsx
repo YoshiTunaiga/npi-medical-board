@@ -9,13 +9,16 @@ export default function Home() {
   const [error, setError] = useState(null);
 
   async function handleDoctorInfoFetch() {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
-
     setLoading(true);
     setError(null);
 
-    fetch(`/api/${doctorNpi}`, { signal })
+    fetch(`/api/${doctorNpi}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -36,7 +39,6 @@ export default function Home() {
         setLoading(false);
         setDoctorNpi("");
       });
-    return () => abortController.abort();
   }
 
   return (
