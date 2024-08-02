@@ -1,13 +1,23 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button, Stack, TextField, Typography } from "@mui/material";
+import ProviderBox from "../components/ProviderBox";
+import fetchDoctorInfo from "../api/api";
 
 export default function Home() {
-  const [id, setId] = useState("");
-  const navigate = useNavigate();
+  const [doctorNpi, setDoctorNpi] = useState("");
+  const [providerData, setProviderData] = useState({});
+  const [isDataSet, setIsDataSet] = useState(false);
 
-  const handleSearchProvider = () => navigate(`/api/${id}`);
-
+  const handleDoctorInfoFetch = async () => {
+    try {
+      const providerInfo = await fetchDoctorInfo(doctorNpi);
+      setProviderData(providerInfo);
+      setIsDataSet(true);
+      setDoctorNpi("");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   return (
     <div
       style={{
@@ -79,22 +89,24 @@ export default function Home() {
               hiddenLabel
               size="small"
               variant="outlined"
-              value={id || ""}
+              value={doctorNpi || ""}
               placeholder="Your provider's NPI"
               inputProps={{
                 autoComplete: "off",
               }}
-              onChange={(event) => setId(event.target.value)}
+              onChange={(event) => setDoctorNpi(event.target.value)}
             />
             <Button
               variant="contained"
               color="primary"
-              disabled={!id}
-              onClick={handleSearchProvider}>
+              disabled={!doctorNpi}
+              onClick={handleDoctorInfoFetch}>
               Search now
             </Button>
           </Stack>
         </Stack>
+        {isDataSet ? <ProviderBox providerData={providerData} /> : null}
+
         <p>Powered by mimilabs.ai</p>
       </div>
     </div>
