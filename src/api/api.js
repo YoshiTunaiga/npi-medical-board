@@ -1,7 +1,17 @@
 import axios from "axios";
 
 export default async function fetchDoctorInfo(npId) {
-  let config = {
+  const API_BASE_URL = import.meta.env.DEV
+    ? import.meta.env.VITE_LOCAL_API_BASE_URL
+    : import.meta.env.VITE_PROD_API_BASE_URL;
+
+  const api = axios.create({
+    baseURL: import.meta.env.PROD ? `${API_BASE_URL}` : `${API_BASE_URL}`,
+  });
+
+  console.log(import.meta.env.PROD);
+
+  const config = {
     method: "get",
     url: `/api/${npId}`,
     headers: {
@@ -11,7 +21,7 @@ export default async function fetchDoctorInfo(npId) {
     withCredentials: true,
   };
   try {
-    const response = await axios.request(config);
+    const response = await api.request(config);
     return response.data;
   } catch (error) {
     console.log(error);
