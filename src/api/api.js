@@ -3,9 +3,12 @@ import axios from "axios";
 export default async function fetchDoctorInfo(npId) {
   let config = {
     method: "get",
-    maxBodyLength: Infinity,
     url: `/api/${npId}`,
-    headers: {},
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+    withCredentials: true,
   };
   try {
     const response = await axios.request(config);
