@@ -6,7 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "https://npi-db.org",
+      "/api": {
+        target: "https://npi-db.org",
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 });
