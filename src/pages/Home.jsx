@@ -1,23 +1,44 @@
 import { useState } from "react";
 import { Button, Stack, TextField, Typography } from "@mui/material";
 import ProviderBox from "../components/ProviderBox";
-import fetchDoctorInfo from "../api/api";
 
 export default function Home() {
   const [doctorNpi, setDoctorNpi] = useState("");
-  const [providerData, setProviderData] = useState({});
-  const [isDataSet, setIsDataSet] = useState(false);
+  const [providerData, setProviderData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const handleDoctorInfoFetch = async () => {
-    try {
-      const providerInfo = await fetchDoctorInfo(doctorNpi);
-      setProviderData(providerInfo);
-      setIsDataSet(true);
-      setDoctorNpi("");
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+  async function handleDoctorInfoFetch() {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
+    setLoading(true);
+    setError(null);
+
+    fetch(`/api/${doctorNpi}`, { signal })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `This is an HTTP error: The status is ${response.status}`
+          );
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setLoading(false);
+        setError(null);
+        setProviderData(data);
+        setDoctorNpi("");
+      })
+      .catch((err) => {
+        setError(err.message);
+        setProviderData(null);
+        setLoading(false);
+        setDoctorNpi("");
+      });
+    return () => abortController.abort();
+  }
+
   return (
     <div
       style={{
@@ -105,7 +126,11 @@ export default function Home() {
             </Button>
           </Stack>
         </Stack>
-        {isDataSet ? <ProviderBox providerData={providerData} /> : null}
+        {!loading ? (
+          <ProviderBox providerData={providerData} error={error} />
+        ) : error ? (
+          <div>ERROR: {error}</div>
+        ) : null}
 
         <p>Powered by mimilabs.ai</p>
       </div>
